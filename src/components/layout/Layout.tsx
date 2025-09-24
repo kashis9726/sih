@@ -14,6 +14,10 @@ import QABoard from '../qa/QABoard';
 import Chat from '../chat/Chat';
 import Profile from '../profile/Profile';
 import AdminDashboard from '../admin/AdminDashboard';
+import UserManagement from '../admin/UserManagement';
+import Analytics from '../admin/Analytics';
+import ContentModeration from '../admin/ContentModeration';
+import SystemSettings from '../admin/SystemSettings';
 
 const Layout: React.FC = () => {
   const { user } = useAuth();
@@ -57,6 +61,15 @@ const Layout: React.FC = () => {
         return <AlumniDirectory />;
       case 'profile':
         return <Profile />;
+      // Admin-specific pages
+      case 'users':
+        return user?.role === 'admin' ? <UserManagement /> : <Dashboard />;
+      case 'analytics':
+        return user?.role === 'admin' ? <Analytics /> : <Dashboard />;
+      case 'content':
+        return user?.role === 'admin' ? <ContentModeration /> : <Dashboard />;
+      case 'settings':
+        return user?.role === 'admin' ? <SystemSettings /> : <Dashboard />;
       default:
         return user?.role === 'admin' ? <AdminDashboard /> : <Dashboard />;
     }
