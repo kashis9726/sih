@@ -7,7 +7,6 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  // Base path configuration - use '/' for local development and most deployments
-  // For GitHub Pages with repository name, use '/REPO_NAME/'
-  base: '/',
+  // Base path configuration for GitHub Pages
+  base: '/AluVerse-project/',
 });
