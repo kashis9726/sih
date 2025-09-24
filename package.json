@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "homepage": "https://kashis9726.github.io/AluVerse-project/",
+
   "description": "Alumni Management Web Application",
   "scripts": {
     "dev": "vite",

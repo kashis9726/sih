@@ -7,6 +7,7 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  // Base path configuration for GitHub Pages
-  base: '/AluVerse-project/',
+  // Base path configuration - use '/' for Netlify, Vercel
+  // For GitHub Pages, use '/AluVerse-project/'
+  base: '/',
 });
