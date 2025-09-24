@@ -27,11 +27,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    // Check for existing session
-    const savedUser = localStorage.getItem('currentUser');
-    if (savedUser) {
-      setUser(JSON.parse(savedUser));
-    }
+    // For demo purposes, always start with login page
+    // Clear any existing session to ensure fresh login experience
+    localStorage.removeItem('currentUser');
+    setUser(null);
   }, []);
 
   const login = async (email: string, password: string): Promise<boolean> => {
