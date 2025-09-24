@@ -253,7 +253,7 @@ const AdminDashboard: React.FC = () => {
       <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
+            <h1 className="text-2xl font-bold text-gray-900">Admin</h1>
             <p className="text-gray-600 mt-1">Monitor network activity and manage users</p>
           </div>
           <div className="flex items-center gap-3">
@@ -327,16 +327,7 @@ const AdminDashboard: React.FC = () => {
             >
               Import Demo Dataset
             </button>
-            <button
-              onClick={() => {
-                localStorage.clear();
-                window.location.reload();
-              }}
-              className="flex items-center px-4 py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-gray-200 transition-colors"
-              title="Clear local data and reload demo content"
-            >
-              Reset Demo Data
-            </button>
+
             <button className="flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
               <Download className="h-4 w-4 mr-2" />
               Export Data
