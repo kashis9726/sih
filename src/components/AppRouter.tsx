@@ -6,11 +6,19 @@ import Layout from './layout/Layout';
 const AppRouter: React.FC = () => {
   const { user, login, signup } = useAuth();
 
-  // Auto-login with demo user and load demo data in production
+  // For localhost development, always show the main app
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+  // Auto-login with demo user for production or if no user is logged in
   useEffect(() => {
     const setupDemoEnvironment = async () => {
+      // Skip demo setup for localhost - just show the app
+      if (isLocalhost) {
+        return;
+      }
+
       // Only run in production if no user is logged in
-      if (!user && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+      if (!user) {
         try {
           // First, try to load demo dataset
           try {
@@ -51,10 +59,15 @@ const AppRouter: React.FC = () => {
     };
 
     setupDemoEnvironment();
-  }, [user, login, signup]);
+  }, [user, login, signup, isLocalhost]);
 
-  // Show loading while setting up demo user
-  if (!user && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+  // For localhost, always show the main app
+  if (isLocalhost) {
+    return <Layout />;
+  }
+
+  // Show loading while setting up demo user (only for production)
+  if (!user) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">

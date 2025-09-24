@@ -1,4 +1,5 @@
-import React from 'react';
+// ...existing code...
+// ...existing code...
 import { AppProvider } from './contexts/AppContext';
 import { AuthProvider } from './contexts/AuthContext';
 import AppRouter from './components/AppRouter';
