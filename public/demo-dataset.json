@@ -1,0 +1,324 @@
+{
+  "users": [
+    {
+      "id": "u-admin",
+      "name": "Institute Admin",
+      "email": "admin@alunet.com",
+      "role": "admin",
+      "department": "Administration",
+      "points": 900,
+      "badges": ["🏆 Admin"],
+      "isVerified": true,
+      "isOnline": true
+    },
+    {
+      "id": "u-alumni-1",
+      "name": "Darshan Patel",
+      "email": "darshan@alumni.com",
+      "role": "alumni",
+      "department": "Computer Science",
+      "graduationYear": 2019,
+      "skills": ["React", "Node.js", "Cloud"],
+      "company": "TechCorp",
+      "position": "Senior Engineer",
+      "bio": "Mentoring students in web and cloud.",
+      "points": 780,
+      "badges": ["🏆 Top Mentor", "💼 Job Creator"],
+      "isVerified": true,
+      "isOnline": true
+    },
+    {
+      "id": "u-alumni-2",
+      "name": "Aesha Shah",
+      "email": "aesha@alumni.com",
+      "role": "alumni",
+      "department": "Electronics",
+      "graduationYear": 2018,
+      "skills": ["AI", "ML", "Data"],
+      "company": "Amazon",
+      "position": "ML Engineer",
+      "bio": "Helping with AI/ML career paths.",
+      "points": 650,
+      "badges": ["📈 Career Guide"],
+      "isVerified": true,
+      "isOnline": false
+    },
+    {
+      "id": "u-alumni-3",
+      "name": "Isha Mehta",
+      "email": "isha@alumni.com",
+      "role": "alumni",
+      "department": "Information Technology",
+      "graduationYear": 2020,
+      "skills": ["Data Science", "Python", "Visualization"],
+      "company": "Google",
+      "position": "Data Analyst",
+      "bio": "Data storyteller and mentor.",
+      "points": 540,
+      "badges": ["🎖️ Event Organizer"],
+      "isVerified": true,
+      "isOnline": true
+    },
+    {
+      "id": "u-alumni-4",
+      "name": "Drashti Desai",
+      "email": "drashti@alumni.com",
+      "role": "alumni",
+      "department": "Electronics",
+      "graduationYear": 2017,
+      "skills": ["Entrepreneurship", "FinTech"],
+      "company": "FinTech Labs",
+      "position": "Founder",
+      "bio": "Hiring interns for fintech products.",
+      "points": 610,
+      "badges": ["🎖️ Event Organizer"],
+      "isVerified": true,
+      "isOnline": false
+    },
+    {
+      "id": "u-student-1",
+      "name": "Kashis Kumar",
+      "email": "kashis@student.com",
+      "role": "student",
+      "department": "Computer Science",
+      "graduationYear": 2025,
+      "skills": ["JavaScript", "UI/UX"],
+      "bio": "Frontend enthusiast and hackathon lover.",
+      "points": 420,
+      "badges": ["🏅 Event Attendee"],
+      "isOnline": true
+    },
+    {
+      "id": "u-student-2",
+      "name": "Daksh Verma",
+      "email": "daksh@student.com",
+      "role": "student",
+      "department": "Mechanical",
+      "graduationYear": 2026,
+      "skills": ["Product", "CAD"],
+      "bio": "Building products and communities.",
+      "points": 310,
+      "badges": ["💬 Helpful"],
+      "isOnline": false
+    },
+    {
+      "id": "u-student-3",
+      "name": "Sahil Khan",
+      "email": "sahil@student.com",
+      "role": "student",
+      "department": "Mechanical",
+      "graduationYear": 2024,
+      "skills": ["Robotics", "CAD"],
+      "bio": "Final Year | Robotics enthusiast.",
+      "points": 180,
+      "badges": ["🏅 Event Attendee"],
+      "isOnline": false
+    },
+    {
+      "id": "u-student-4",
+      "name": "Neha Gupta",
+      "email": "neha@student.com",
+      "role": "student",
+      "department": "ECE",
+      "graduationYear": 2028,
+      "skills": ["Web Development", "UI/UX"],
+      "bio": "1st Year | Web dev beginner.",
+      "points": 120,
+      "badges": [],
+      "isOnline": true
+    }
+  ],
+  "posts": [
+    {
+      "id": "p-1",
+      "authorId": "u-alumni-1",
+      "author": { "id": "u-alumni-1", "name": "Darshan Patel", "email": "darshan@alumni.com", "role": "alumni", "points": 780, "badges": [] },
+      "content": "Software Intern @ Google – Looking for strong DSA + React basics. Apply now!",
+      "likes": ["u-student-1", "u-student-2"],
+      "comments": [],
+      "createdAt": "2025-09-01T10:00:00Z",
+      "type": "job"
+    },
+    {
+      "id": "p-2",
+      "authorId": "u-alumni-2",
+      "author": { "id": "u-alumni-2", "name": "Aesha Shah", "email": "aesha@alumni.com", "role": "alumni", "points": 650, "badges": [] },
+      "content": "ML Intern @ Amazon – Python, SQL, and data viz skills required.",
+      "likes": ["u-student-3"],
+      "comments": [],
+      "createdAt": "2025-09-05T12:00:00Z",
+      "type": "job"
+    },
+    {
+      "id": "p-3",
+      "authorId": "u-alumni-3",
+      "author": { "id": "u-alumni-3", "name": "Isha Mehta", "email": "isha@alumni.com", "role": "alumni", "points": 540, "badges": [] },
+      "content": "Data Analyst Intern @ Google – SQL, Python, and visualization skills required.",
+      "likes": ["u-student-2"],
+      "comments": [],
+      "createdAt": "2025-09-07T14:00:00Z",
+      "type": "job"
+    },
+    {
+      "id": "p-4",
+      "authorId": "u-alumni-4",
+      "author": { "id": "u-alumni-4", "name": "Drashti Desai", "email": "drashti@alumni.com", "role": "alumni", "points": 610, "badges": [] },
+      "content": "Business Development Associate @ FinTech Startup – Hustlers welcome!",
+      "likes": ["u-student-1"],
+      "comments": [],
+      "createdAt": "2025-09-08T09:30:00Z",
+      "type": "job"
+    },
+    {
+      "id": "p-5",
+      "authorId": "u-student-1",
+      "author": { "id": "u-student-1", "name": "Kashis Kumar", "email": "kashis@student.com", "role": "student", "points": 420, "badges": [] },
+      "content": "Built a placement portal prototype during a 24hr hackathon!",
+      "likes": ["u-alumni-1", "u-alumni-2"],
+      "comments": [],
+      "createdAt": "2025-09-09T10:30:00Z",
+      "type": "achievement"
+    }
+  ],
+  "events": [
+    {
+      "id": "e-1",
+      "organizerId": "u-alumni-3",
+      "organizer": { "id": "u-alumni-3", "name": "Isha Mehta", "email": "isha@alumni.com", "role": "alumni", "points": 0, "badges": [] },
+      "title": "Future of AI in Healthcare",
+      "description": "Discussing how AI is transforming diagnostics and operations.",
+      "date": "2025-10-15T10:00:00Z",
+      "location": "Online",
+      "type": "webinar",
+      "attendees": ["u-student-1", "u-student-2"],
+      "maxAttendees": 200,
+      "createdAt": "2025-09-01T09:00:00Z"
+    },
+    {
+      "id": "e-2",
+      "organizerId": "u-alumni-4",
+      "organizer": { "id": "u-alumni-4", "name": "Drashti Desai", "email": "drashti@alumni.com", "role": "alumni", "points": 0, "badges": [] },
+      "title": "Startup Journey: From Idea to IPO",
+      "description": "Lessons from starting and scaling a fintech company.",
+      "date": "2025-10-20T11:00:00Z",
+      "location": "Auditorium",
+      "type": "seminar",
+      "attendees": ["u-student-3"],
+      "createdAt": "2025-09-02T09:00:00Z"
+    },
+    {
+      "id": "e-3",
+      "organizerId": "u-admin",
+      "organizer": { "id": "u-admin", "name": "Institute Admin", "email": "admin@alunet.com", "role": "admin", "points": 0, "badges": [] },
+      "title": "Campus Innovation Challenge",
+      "description": "Hackathon to prototype campus solutions.",
+      "date": "2025-10-25T08:00:00Z",
+      "location": "Main Hall",
+      "type": "workshop",
+      "attendees": ["u-student-1", "u-student-2", "u-student-4"],
+      "maxAttendees": 300,
+      "createdAt": "2025-09-03T09:00:00Z"
+    }
+  ],
+  "questions": [
+    {
+      "id": "q-1",
+      "authorId": "u-student-1",
+      "author": { "id": "u-student-1", "name": "Amit Kumar", "email": "amit@student.com", "role": "student", "points": 250, "badges": [] },
+      "title": "How should I prepare for placements in the IT industry?",
+      "content": "What should I focus on besides DSA?",
+      "tags": ["career", "placements", "it"],
+      "answers": [
+        {
+          "id": "a-1",
+          "authorId": "u-alumni-1",
+          "author": { "id": "u-alumni-1", "name": "Priya Sharma", "email": "priya@google.com", "role": "alumni", "points": 520, "badges": [] },
+          "content": "Focus on DSA, hackathons, and 2–3 solid projects. Use LeetCode & Kaggle for practice.",
+          "upvotes": ["u-student-2", "u-student-3", "u-student-4"],
+          "createdAt": "2025-09-05T09:00:00Z"
+        }
+      ],
+      "createdAt": "2025-09-04T12:00:00Z"
+    },
+    {
+      "id": "q-2",
+      "authorId": "u-student-2",
+      "author": { "id": "u-student-2", "name": "Daksh Verma", "email": "daksh@student.com", "role": "student", "points": 310, "badges": [] },
+      "title": "How to get started with Data Science projects?",
+      "content": "Looking for beginner-friendly ideas.",
+      "tags": ["data-science", "beginner"],
+      "answers": [],
+      "createdAt": "2025-09-06T08:00:00Z"
+    }
+  ],
+  "startups": [
+    {
+      "id": "s-1",
+      "ownerId": "u-student-3",
+      "owner": { "id": "u-student-3", "name": "Sahil Khan", "email": "sahil@student.com", "role": "student", "points": 180, "badges": [] },
+      "title": "AgriSmart",
+      "tagline": "AI-powered solutions for smart farming",
+      "stage": "prototype",
+      "problem": "Lack of real-time crop monitoring.",
+      "solution": "IoT sensors + AI dashboards for insights.",
+      "progress": "Prototype built, field-tested on 2 farms.",
+      "fundingNeeded": "$10,000",
+      "attachments": [],
+      "likes": ["u-alumni-1", "u-alumni-3"],
+      "comments": [],
+      "createdAt": "2025-09-07T10:00:00Z"
+    }
+  ],
+  "reversePitches": [
+    {
+      "id": "rp-1",
+      "authorId": "u-alumni-4",
+      "author": { "id": "u-alumni-4", "name": "Drashti Desai", "email": "drashti@alumni.com", "role": "alumni", "points": 0, "badges": [] },
+      "title": "Blockchain Payment Gateway",
+      "description": "Looking for interns skilled in Web3 + Security to build a gateway.",
+      "industry": "FinTech",
+      "budget": "$1000/month stipend",
+      "deadline": "2025-11-30T00:00:00Z",
+      "submissions": [],
+      "createdAt": "2025-09-07T11:00:00Z"
+    },
+    {
+      "id": "rp-2",
+      "authorId": "u-alumni-1",
+      "author": { "id": "u-alumni-1", "name": "Darshan Patel", "email": "darshan@alumni.com", "role": "alumni", "points": 0, "badges": [] },
+      "title": "AI in Education",
+      "description": "Looking to mentor students building EdTech AI tools.",
+      "industry": "EdTech",
+      "budget": null,
+      "deadline": "2025-12-31T00:00:00Z",
+      "submissions": [],
+      "createdAt": "2025-09-10T11:00:00Z"
+    }
+  ],
+  "chatRooms": [
+    {
+      "id": "c-1",
+      "participants": ["u-student-1", "u-alumni-1"],
+      "messages": [
+        {
+          "id": "m-1",
+          "senderId": "u-student-1",
+          "sender": { "id": "u-student-1", "name": "Amit Kumar", "email": "amit@student.com", "role": "student", "points": 250, "badges": [] },
+          "content": "Hi Priya Ma’am, I am interested in AI/ML. Could you guide me about internships?",
+          "timestamp": "2025-09-09T09:30:00Z",
+          "type": "text"
+        },
+        {
+          "id": "m-2",
+          "senderId": "u-alumni-1",
+          "sender": { "id": "u-alumni-1", "name": "Priya Sharma", "email": "priya@google.com", "role": "alumni", "points": 520, "badges": [] },
+          "content": "Of course! I’ll share resources and connect you to our referral portal.",
+          "timestamp": "2025-09-09T09:45:00Z",
+          "type": "text"
+        }
+      ],
+      "createdAt": "2025-09-09T09:00:00Z",
+      "updatedAt": "2025-09-09T09:45:00Z"
+    }
+  ]
+}

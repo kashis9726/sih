@@ -1,0 +1,95 @@
+import React, { useEffect, useState } from 'react';
+import { useAuth } from '../../contexts/AuthContext';
+import Sidebar from './Sidebar';
+import Header from './Header';
+import Dashboard from '../dashboard/Dashboard';
+import Feed from '../feed/Feed';
+import Events from '../events/Events';
+import StartupHub from '../startup/StartupHub';
+import ReversePitching from '../reverse-pitching/ReversePitching';
+import Opportunities from '../opportunities/Opportunities';
+import Blogs from '../blogs/Blogs';
+import AlumniDirectory from '../people/AlumniDirectory';
+import QABoard from '../qa/QABoard';
+import Chat from '../chat/Chat';
+import Profile from '../profile/Profile';
+import AdminDashboard from '../admin/AdminDashboard';
+
+const Layout: React.FC = () => {
+  const { user } = useAuth();
+  const [currentPage, setCurrentPage] = useState('dashboard');
+  const [chatOpen, setChatOpen] = useState(false);
+
+  // Global navigation via CustomEvent: dispatch new CustomEvent('app:navigate', { detail: { page: 'alumni', search: 'Name' } })
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const ce = e as CustomEvent<{ page?: string; search?: string }>;
+      if (ce.detail?.page) {
+        if (ce.detail.search && ce.detail.page === 'alumni') {
+          try { localStorage.setItem('directorySearch', ce.detail.search); } catch {}
+        }
+        setCurrentPage(ce.detail.page);
+      }
+    };
+    window.addEventListener('app:navigate' as any, handler as any);
+    return () => window.removeEventListener('app:navigate' as any, handler as any);
+  }, []);
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'dashboard':
+        return user?.role === 'admin' ? <AdminDashboard /> : <Dashboard />;
+      case 'feed':
+        return <Feed />;
+      case 'events':
+        return <Events />;
+      case 'opportunities':
+        return <Opportunities />;
+      case 'blogs':
+        return <Blogs />;
+      case 'startups':
+        return <StartupHub />;
+      case 'reverse-pitching':
+        return <ReversePitching />;
+      case 'qa':
+        return <QABoard />;
+      case 'alumni':
+        return <AlumniDirectory />;
+      case 'profile':
+        return <Profile />;
+      default:
+        return user?.role === 'admin' ? <AdminDashboard /> : <Dashboard />;
+    }
+  };
+
+  return (
+    <div className="relative min-h-screen bg-app-gradient">
+      {/* 3D animated background blobs */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <span className="absolute -top-16 -left-24 h-80 w-80 rounded-full blur-3xl opacity-50 animate-drift-slower" style={{ background: 'radial-gradient(circle at 30% 30%, rgba(217,70,239,0.45), transparent 60%)' }} />
+        <span className="absolute top-1/2 -translate-y-1/2 -right-24 h-96 w-96 rounded-full blur-3xl opacity-50 animate-float-slow" style={{ background: 'radial-gradient(circle at 70% 30%, rgba(245,158,11,0.35), transparent 60%)' }} />
+        <span className="absolute -bottom-24 left-1/4 h-96 w-96 rounded-full blur-3xl opacity-40 animate-drift-slower" style={{ background: 'radial-gradient(circle at 50% 50%, rgba(20,184,166,0.35), transparent 60%)' }} />
+      </div>
+
+      <div className="relative z-10 flex">
+        <Sidebar currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      
+      <div className="flex-1 flex flex-col">
+        <Header onChatToggle={() => setChatOpen(!chatOpen)} />
+        
+        <main className="flex-1 p-6 overflow-auto">
+          {renderPage()}
+        </main>
+      </div>
+
+      {chatOpen && (
+        <div className="w-80 bg-white/80 backdrop-blur border-l border-white/50 shadow-elev-1">
+          <Chat onClose={() => setChatOpen(false)} />
+        </div>
+      )}
+      </div>
+    </div>
+  );
+};
+
+export default Layout;
