@@ -9,5 +9,5 @@ export default defineConfig({
   },
   // Base path configuration - use '/' for Netlify, Vercel
   // For GitHub Pages, use '/AluVerse-project/'
-  base: '/',
+  base: '/AluVerse-project/',
 });
