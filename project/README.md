@@ -6,6 +6,8 @@ Modern React + TypeScript application for alumni networking and management with 
 
 🌐 **Public URL**: https://kashis9726.github.io/AluVerse-project/
 
+*Last updated: January 2025*
+
 ## 🚀 Quick Access
 
 The application now starts with a **login page** where you can access different user roles:
