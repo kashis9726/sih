@@ -84,6 +84,7 @@
       "graduationYear": 2025,
       "skills": ["JavaScript", "UI/UX"],
       "bio": "Frontend enthusiast and hackathon lover.",
+      "startup": "TechInnovate Solutions",
       "points": 420,
       "badges": ["🏅 Event Attendee"],
       "isOnline": true
@@ -97,6 +98,7 @@
       "graduationYear": 2026,
       "skills": ["Product", "CAD"],
       "bio": "Building products and communities.",
+      "startup": "EcoDesign Labs",
       "points": 310,
       "badges": ["💬 Helpful"],
       "isOnline": false
@@ -110,6 +112,7 @@
       "graduationYear": 2024,
       "skills": ["Robotics", "CAD"],
       "bio": "Final Year | Robotics enthusiast.",
+      "startup": "AgriSmart",
       "points": 180,
       "badges": ["🏅 Event Attendee"],
       "isOnline": false
@@ -123,6 +126,7 @@
       "graduationYear": 2028,
       "skills": ["Web Development", "UI/UX"],
       "bio": "1st Year | Web dev beginner.",
+      "startup": "WebCraft Studios",
       "points": 120,
       "badges": [],
       "isOnline": true
@@ -210,7 +214,7 @@
       "id": "e-3",
       "organizerId": "u-admin",
       "organizer": { "id": "u-admin", "name": "Institute Admin", "email": "admin@alunet.com", "role": "admin", "points": 0, "badges": [] },
-      "title": "Campus Innovation Challenge",
+  "title": "Innovation Challenge",
       "description": "Hackathon to prototype campus solutions.",
       "date": "2025-10-25T08:00:00Z",
       "location": "Main Hall",

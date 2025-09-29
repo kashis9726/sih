@@ -10,6 +10,7 @@ export interface User {
   company?: string;
   position?: string;
   bio?: string;
+  startup?: string;
   points: number;
   badges: string[];
   isVerified?: boolean;

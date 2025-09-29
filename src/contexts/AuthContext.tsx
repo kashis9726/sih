@@ -77,6 +77,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         skills: userData.skills || [],
         company: userData.company,
         position: userData.position,
+        startup: userData.startup,
         bio: userData.bio,
         points: 0,
         badges: [],

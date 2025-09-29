@@ -40,10 +40,11 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, setCurrentPage }) => {
           { id: 'dashboard', label: 'Student Dashboard', icon: Home },
           { id: 'alumni', label: 'Find Mentors', icon: Users },
           { id: 'opportunities', label: 'Internships', icon: Briefcase },
-          { id: 'events', label: 'Campus Events', icon: Calendar },
+          { id: 'events', label: 'Events', icon: Calendar },
+          { id: 'startups', label: 'Startup Ideas', icon: Lightbulb },
           { id: 'qa', label: 'Ask Questions', icon: MessageCircle },
           { id: 'blogs', label: 'Learning Resources', icon: BookOpen },
-          { id: 'reverse-pitching', label: 'Industry Insights', icon: RefreshCw },
+          { id: 'reverse-pitching', label: 'Challenges Hub', icon: RefreshCw },
         ];
 
       case 'alumni':
@@ -61,7 +62,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, setCurrentPage }) => {
 
       case 'admin':
         return [
-          { id: 'dashboard', label: 'Admin Dashboard', icon: BarChart3 },
+          { id: 'dashboard', label: 'Admin', icon: BarChart3 },
           { id: 'users', label: 'User Management', icon: Shield },
           { id: 'analytics', label: 'Analytics', icon: TrendingUp },
           { id: 'events', label: 'Event Management', icon: Calendar },

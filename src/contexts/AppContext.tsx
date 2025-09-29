@@ -122,7 +122,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
       const demoUsers: User[] = [
         {
           id: 'u-admin',
-          name: 'Admin Patel',
+          name: 'Admin',
           email: 'admin@demo.com',
           role: 'admin',
           department: 'Administration',

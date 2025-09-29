@@ -99,7 +99,9 @@ const Chat: React.FC<ChatProps> = ({ onClose }) => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="font-medium text-gray-900 truncate">{u.name}</p>
-                  <p className="text-sm text-gray-500 truncate">{u.position || u.role}</p>
+                  <p className="text-sm text-gray-500 truncate">
+                    {u.position || (u.role === 'student' && u.startup ? `Startup: ${u.startup}` : u.role)}
+                  </p>
                 </div>
               </button>
             ))}

@@ -165,7 +165,7 @@ const Header: React.FC<HeaderProps> = ({ onChatToggle }) => {
                 {user?.name.charAt(0).toUpperCase()}
               </div>
               <div className="text-left">
-                <div className="text-sm font-medium text-gray-900">{user?.name}</div>
+                <div className="text-sm font-medium text-gray-900">{user?.role === 'admin' ? 'Admin' : user?.name}</div>
                 <div className="flex items-center space-x-2">
                   <span className={`px-2 py-0.5 text-xs font-medium rounded-full ${getRoleBadgeColor(user?.role || 'student')}`}>
                     {user?.role}

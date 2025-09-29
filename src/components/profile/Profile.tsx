@@ -11,6 +11,7 @@ const Profile: React.FC = () => {
     skills: user?.skills?.join(', ') || '',
     company: user?.company || '',
     position: user?.position || '',
+    startup: user?.startup || '',
     department: user?.department || '',
     graduationYear: user?.graduationYear || new Date().getFullYear()
   });
@@ -26,6 +27,7 @@ const Profile: React.FC = () => {
       skills: skillsArray,
       company: editData.company,
       position: editData.position,
+      startup: editData.startup,
       department: editData.department,
       graduationYear: editData.graduationYear
     });
@@ -40,6 +42,7 @@ const Profile: React.FC = () => {
       skills: user?.skills?.join(', ') || '',
       company: user?.company || '',
       position: user?.position || '',
+      startup: user?.startup || '',
       department: user?.department || '',
       graduationYear: user?.graduationYear || new Date().getFullYear()
     });
@@ -123,6 +126,25 @@ const Profile: React.FC = () => {
                       </div>
                     ) : (
                       `${user.position} at ${user.company}`
+                    )}
+                  </span>
+                </div>
+              )}
+
+              {user.startup && (
+                <div className="flex items-center space-x-2 mt-1 text-gray-600">
+                  <Building className="h-4 w-4" />
+                  <span>
+                    {isEditing ? (
+                      <input
+                        type="text"
+                        value={editData.startup}
+                        onChange={(e) => setEditData({ ...editData, startup: e.target.value })}
+                        placeholder="Startup"
+                        className="border border-gray-300 rounded px-2 py-1 text-sm"
+                      />
+                    ) : (
+                      `Startup: ${user.startup}`
                     )}
                   </span>
                 </div>

@@ -316,11 +316,11 @@ const ReversePitching: React.FC = () => {
       {reversePitches.length === 0 && (
         <div className="bg-white rounded-xl p-12 text-center shadow-sm border border-gray-200">
           <RefreshCw className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-          <h3 className="text-lg font-medium text-gray-900 mb-2">No industry problems yet</h3>
+          <h3 className="text-lg font-medium text-gray-900 mb-2">No challenges yet</h3>
           <p className="text-gray-600">
             {user?.role === 'alumni' || user?.role === 'admin'
-              ? 'Be the first to post a real industry problem for students to solve!'
-              : 'Alumni will start posting industry challenges soon.'
+              ? 'Be the first to post a challenge for students to solve!'
+              : 'Alumni will start posting challenges soon.'
             }
           </p>
         </div>
