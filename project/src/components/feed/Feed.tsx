@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useApp } from '../../contexts/AppContext';
-import { Heart, MessageCircle, Share2, Image, Briefcase } from 'lucide-react';
+import { Heart, MessageCircle, Share2, Image, Briefcase, Lightbulb, Target, TrendingUp } from 'lucide-react';
 
 const Feed: React.FC = () => {
   const { user } = useAuth();
@@ -9,13 +9,28 @@ const Feed: React.FC = () => {
   const [showCreatePost, setShowCreatePost] = useState(false);
   const [newPost, setNewPost] = useState({
     content: '',
-    type: 'post' as 'post' | 'job' | 'achievement'
+    type: 'post' as 'post' | 'job' | 'achievement' | 'startup',
+    startupData: {
+      title: '',
+      tagline: '',
+      stage: 'concept' as 'concept' | 'prototype' | 'mvp',
+      problem: '',
+      solution: '',
+      progress: '',
+      supportNeeded: ''
+    }
   });
-  const [filterType, setFilterType] = useState<'all' | 'post' | 'job' | 'achievement'>('all');
+  const [filterType, setFilterType] = useState<'all' | 'post' | 'job' | 'achievement' | 'startup'>('all');
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleCreatePost = () => {
     if (!newPost.content.trim() || !user) return;
+    
+    // Additional validation for startup posts
+    if (newPost.type === 'startup' && (!newPost.startupData.title || !newPost.startupData.tagline)) {
+      alert('Please fill in startup title and tagline');
+      return;
+    }
 
     const author = users.find(u => u.id === user.id) || user;
     
@@ -25,13 +40,26 @@ const Feed: React.FC = () => {
       content: newPost.content,
       likes: [],
       comments: [],
-      type: newPost.type
+      type: newPost.type,
+      startupData: newPost.type === 'startup' ? newPost.startupData : undefined
     });
 
     // Award points for posting
-    updateUserPoints(user.id, 10);
+    updateUserPoints(user.id, newPost.type === 'startup' ? 25 : 10);
 
-    setNewPost({ content: '', type: 'post' });
+    setNewPost({ 
+      content: '', 
+      type: 'post',
+      startupData: {
+        title: '',
+        tagline: '',
+        stage: 'concept',
+        problem: '',
+        solution: '',
+        progress: '',
+        supportNeeded: ''
+      }
+    });
     setShowCreatePost(false);
   };
 
@@ -46,6 +74,8 @@ const Feed: React.FC = () => {
         return 'bg-green-100 text-green-800';
       case 'achievement':
         return 'bg-yellow-100 text-yellow-800';
+      case 'startup':
+        return 'bg-purple-100 text-purple-800';
       default:
         return 'bg-blue-100 text-blue-800';
     }
@@ -57,16 +87,42 @@ const Feed: React.FC = () => {
         return <Briefcase className="h-4 w-4" />;
       case 'achievement':
         return <Heart className="h-4 w-4" />;
+      case 'startup':
+        return <Lightbulb className="h-4 w-4" />;
       default:
         return <MessageCircle className="h-4 w-4" />;
     }
+  };
+
+  const getStageIcon = (stage: string) => {
+    switch (stage) {
+      case 'concept':
+        return <Lightbulb className="h-4 w-4" />;
+      case 'prototype':
+        return <Target className="h-4 w-4" />;
+      case 'mvp':
+        return <TrendingUp className="h-4 w-4" />;
+      default:
+        return <Lightbulb className="h-4 w-4" />;
+    }
+  };
+
+  const getStageBadge = (stage: string) => {
+    const colors = {
+      concept: 'bg-yellow-100 text-yellow-800',
+      prototype: 'bg-blue-100 text-blue-800',
+      mvp: 'bg-green-100 text-green-800'
+    };
+    return colors[stage as keyof typeof colors];
   };
 
   const filteredPosts = posts.filter((p) => {
     const matchesType = filterType === 'all' ? true : p.type === filterType;
     const matchesSearch = searchQuery
       ? p.content.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.author.name.toLowerCase().includes(searchQuery.toLowerCase())
+        p.author.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (p.startupData?.title?.toLowerCase().includes(searchQuery.toLowerCase())) ||
+        (p.startupData?.tagline?.toLowerCase().includes(searchQuery.toLowerCase()))
       : true;
     return matchesType && matchesSearch;
   });
@@ -85,6 +141,7 @@ const Feed: React.FC = () => {
               { id: 'all', label: 'All' },
               { id: 'job', label: 'Jobs' },
               { id: 'achievement', label: 'Achievements' },
+              { id: 'startup', label: 'Startups' },
               { id: 'post', label: 'Posts' },
             ].map((tab) => (
               <button
@@ -111,7 +168,7 @@ const Feed: React.FC = () => {
       </div>
 
       {/* Create Post */}
-      {(user?.role === 'alumni' || user?.role === 'admin') && (
+      {(user?.role === 'alumni' || user?.role === 'admin' || user?.role === 'student') && (
         <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
           {!showCreatePost ? (
             <button
@@ -132,18 +189,116 @@ const Feed: React.FC = () => {
                   className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                   <option value="post">General Post</option>
-                  <option value="job">Job Opportunity</option>
+                  {(user?.role === 'alumni' || user?.role === 'admin') && (
+                    <option value="job">Job Opportunity</option>
+                  )}
                   <option value="achievement">Achievement</option>
+                  {user?.role === 'student' && (
+                    <option value="startup">Startup Idea</option>
+                  )}
                 </select>
               </div>
               
               <textarea
                 value={newPost.content}
                 onChange={(e) => setNewPost({ ...newPost, content: e.target.value })}
-                placeholder="What would you like to share?"
+                placeholder={newPost.type === 'startup' ? "Describe your startup and what makes it unique..." : "What would you like to share?"}
                 className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                 rows={4}
               />
+
+              {/* Startup-specific fields */}
+              {newPost.type === 'startup' && (
+                <div className="space-y-4 p-4 bg-purple-50 rounded-lg border border-purple-200">
+                  <h3 className="text-lg font-semibold text-purple-900">Startup Details</h3>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Startup Title*
+                      </label>
+                      <input
+                        type="text"
+                        value={newPost.startupData.title}
+                        onChange={(e) => setNewPost({ 
+                          ...newPost, 
+                          startupData: { ...newPost.startupData, title: e.target.value } 
+                        })}
+                        placeholder="e.g., EcoTrack"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Stage
+                      </label>
+                      <select
+                        value={newPost.startupData.stage}
+                        onChange={(e) => setNewPost({ 
+                          ...newPost, 
+                          startupData: { ...newPost.startupData, stage: e.target.value as any } 
+                        })}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                      >
+                        <option value="concept">Concept</option>
+                        <option value="prototype">Prototype</option>
+                        <option value="mvp">MVP</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Tagline*
+                    </label>
+                    <input
+                      type="text"
+                      value={newPost.startupData.tagline}
+                      onChange={(e) => setNewPost({ 
+                        ...newPost, 
+                        startupData: { ...newPost.startupData, tagline: e.target.value } 
+                      })}
+                      placeholder="One-line description of your startup"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Problem Statement
+                      </label>
+                      <textarea
+                        value={newPost.startupData.problem}
+                        onChange={(e) => setNewPost({ 
+                          ...newPost, 
+                          startupData: { ...newPost.startupData, problem: e.target.value } 
+                        })}
+                        placeholder="What problem are you solving?"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                        rows={3}
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Solution
+                      </label>
+                      <textarea
+                        value={newPost.startupData.solution}
+                        onChange={(e) => setNewPost({ 
+                          ...newPost, 
+                          startupData: { ...newPost.startupData, solution: e.target.value } 
+                        })}
+                        placeholder="How does your startup solve this?"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                        rows={3}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
               
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
@@ -197,6 +352,44 @@ const Feed: React.FC = () => {
                 
                 <p className="text-gray-800 mb-4 leading-relaxed">{post.content}</p>
                 
+                {/* Startup Details Display */}
+                {post.type === 'startup' && post.startupData && (
+                  <div className="mb-4 p-4 bg-purple-50 rounded-lg border border-purple-200">
+                    <div className="flex items-start justify-between mb-3">
+                      <div>
+                        <h4 className="text-lg font-bold text-purple-900">{post.startupData.title}</h4>
+                        <p className="text-purple-700 font-medium">{post.startupData.tagline}</p>
+                      </div>
+                      <div className={`flex items-center space-x-1 px-3 py-1 rounded-full text-sm font-medium ${getStageBadge(post.startupData.stage)}`}>
+                        {getStageIcon(post.startupData.stage)}
+                        <span className="capitalize">{post.startupData.stage}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {post.startupData.problem && (
+                        <div>
+                          <h5 className="text-sm font-semibold text-gray-900 mb-1 flex items-center">
+                            <Target className="h-4 w-4 mr-1 text-red-500" />
+                            Problem
+                          </h5>
+                          <p className="text-sm text-gray-700">{post.startupData.problem}</p>
+                        </div>
+                      )}
+                      
+                      {post.startupData.solution && (
+                        <div>
+                          <h5 className="text-sm font-semibold text-gray-900 mb-1 flex items-center">
+                            <Lightbulb className="h-4 w-4 mr-1 text-yellow-500" />
+                            Solution
+                          </h5>
+                          <p className="text-sm text-gray-700">{post.startupData.solution}</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+                
                 <div className="flex items-center space-x-6 text-gray-500">
                   <button
                     onClick={() => handleLike(post.id)}
@@ -229,9 +422,9 @@ const Feed: React.FC = () => {
           <MessageCircle className="h-16 w-16 text-gray-400 mx-auto mb-4" />
           <h3 className="text-lg font-medium text-gray-900 mb-2">No posts yet</h3>
           <p className="text-gray-600">
-            {user?.role === 'alumni' || user?.role === 'admin'
+            {user?.role === 'alumni' || user?.role === 'admin' || user?.role === 'student'
               ? 'Be the first to share something with the community!'
-              : 'Alumni will start sharing updates soon. Stay tuned!'
+              : 'Alumni and students will start sharing updates soon. Stay tuned!'
             }
           </p>
         </div>

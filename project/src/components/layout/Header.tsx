@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { useApp } from '../../contexts/AppContext';
-import { Bell, MessageSquare, Search, ChevronDown, Calendar, Briefcase, BookOpen, UserCircle2 } from 'lucide-react';
+import { Bell, MessageSquare, Search, ChevronDown, Calendar, Briefcase, BookOpen, UserCircle2, Lightbulb } from 'lucide-react';
 
 interface HeaderProps {
   onChatToggle: () => void;
@@ -28,11 +28,12 @@ const Header: React.FC<HeaderProps> = ({ onChatToggle }) => {
     }
   };
 
-  // Aggregate notifications: jobs/internships from posts (type 'job'), blog posts (type 'post'), upcoming events
+  // Aggregate notifications: jobs/internships from posts (type 'job'), blog posts (type 'post'), startup posts (type 'startup'), upcoming events
   const jobNotifs = useMemo(() => posts.filter(p => p.type === 'job').slice(-5).reverse(), [posts]);
   const blogNotifs = useMemo(() => posts.filter(p => p.type === 'post').slice(-5).reverse(), [posts]);
+  const startupNotifs = useMemo(() => posts.filter(p => p.type === 'startup').slice(-5).reverse(), [posts]);
   const upcomingEvents = useMemo(() => events.filter(e => new Date(e.date) > new Date()).slice(0,5), [events]);
-  const notifCount = jobNotifs.length + blogNotifs.length + upcomingEvents.length;
+  const notifCount = jobNotifs.length + blogNotifs.length + startupNotifs.length + upcomingEvents.length;
 
   // Recent chats: last 5 rooms sorted by updatedAt desc
   const recentChats = useMemo(() => {
@@ -145,6 +146,16 @@ const Header: React.FC<HeaderProps> = ({ onChatToggle }) => {
                       <div className="min-w-0">
                         <div className="text-sm font-semibold text-gray-900 truncate">New Blog</div>
                         <div className="text-xs text-gray-600 truncate">{b.content.slice(0,80)}{b.content.length>80?'...':''}</div>
+                      </div>
+                    </div>
+                  ))}
+                  {/* Startups */}
+                  {startupNotifs.map(s => (
+                    <div key={s.id} className="flex items-start gap-3 px-2 py-2 rounded-lg hover:bg-gray-50">
+                      <div className="p-2 rounded-lg bg-purple-50 text-purple-700"><Lightbulb className="h-4 w-4" /></div>
+                      <div className="min-w-0">
+                        <div className="text-sm font-semibold text-gray-900 truncate">New Startup Idea</div>
+                        <div className="text-xs text-gray-600 truncate">{s.startupData?.title || s.content.slice(0,60)}{(s.startupData?.title?.length || s.content.length) > 60 ? '...' : ''}</div>
                       </div>
                     </div>
                   ))}

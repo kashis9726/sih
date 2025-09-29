@@ -84,6 +84,7 @@
       "graduationYear": 2025,
       "skills": ["JavaScript", "UI/UX"],
       "bio": "Frontend enthusiast and hackathon lover.",
+      "startup": "TechInnovate Solutions",
       "points": 420,
       "badges": ["🏅 Event Attendee"],
       "isOnline": true
@@ -97,6 +98,7 @@
       "graduationYear": 2026,
       "skills": ["Product", "CAD"],
       "bio": "Building products and communities.",
+      "startup": "EcoDesign Labs",
       "points": 310,
       "badges": ["💬 Helpful"],
       "isOnline": false
@@ -110,6 +112,7 @@
       "graduationYear": 2024,
       "skills": ["Robotics", "CAD"],
       "bio": "Final Year | Robotics enthusiast.",
+      "startup": "AgriSmart",
       "points": 180,
       "badges": ["🏅 Event Attendee"],
       "isOnline": false
@@ -123,6 +126,7 @@
       "graduationYear": 2028,
       "skills": ["Web Development", "UI/UX"],
       "bio": "1st Year | Web dev beginner.",
+      "startup": "WebCraft Studios",
       "points": 120,
       "badges": [],
       "isOnline": true
@@ -178,6 +182,57 @@
       "comments": [],
       "createdAt": "2025-09-09T10:30:00Z",
       "type": "achievement"
+    },
+    {
+      "id": "p-6",
+      "authorId": "u-student-2",
+      "author": { "id": "u-student-2", "name": "Daksh Verma", "email": "daksh@student.com", "role": "student", "points": 310, "badges": [] },
+      "content": "Excited to share my startup idea for sustainable packaging solutions! Looking for feedback and potential mentors to guide us through the next phase.",
+      "likes": ["u-alumni-1", "u-student-1", "u-student-3"],
+      "comments": [],
+      "createdAt": "2025-09-10T15:30:00Z",
+      "type": "startup",
+      "startupData": {
+        "title": "EcoWrap",
+        "tagline": "Biodegradable packaging that dissolves in water",
+        "stage": "prototype",
+        "problem": "Traditional plastic packaging takes hundreds of years to decompose, contributing to environmental pollution and ocean plastic crisis.",
+        "solution": "Our innovative biodegradable material dissolves completely in water within 30 days, made from agricultural waste and natural polymers."
+      }
+    },
+    {
+      "id": "p-7",
+      "authorId": "u-student-3",
+      "author": { "id": "u-student-3", "name": "Sahil Khan", "email": "sahil@student.com", "role": "student", "points": 180, "badges": [] },
+      "content": "Presenting AgriSmart - our AI-powered precision farming solution. We're in the MVP stage and seeking partnerships with local farms for pilot testing.",
+      "likes": ["u-alumni-3", "u-student-2", "u-student-4"],
+      "comments": [],
+      "createdAt": "2025-09-11T12:00:00Z",
+      "type": "startup",
+      "startupData": {
+        "title": "AgriSmart",
+        "tagline": "AI-driven crop monitoring for maximum yield",
+        "stage": "mvp",
+        "problem": "Farmers struggle with crop diseases, pest attacks, and optimal irrigation timing, leading to 20-40% yield losses annually.",
+        "solution": "IoT sensors and computer vision analyze soil, weather, and crop health in real-time, providing actionable insights via mobile app."
+      }
+    },
+    {
+      "id": "p-8",
+      "authorId": "u-student-4",
+      "author": { "id": "u-student-4", "name": "Neha Gupta", "email": "neha@student.com", "role": "student", "points": 120, "badges": [] },
+      "content": "Working on a concept for making web development accessible to non-technical entrepreneurs. Would love to connect with anyone interested in the space!",
+      "likes": ["u-alumni-2", "u-student-1"],
+      "comments": [],
+      "createdAt": "2025-09-12T09:15:00Z",
+      "type": "startup",
+      "startupData": {
+        "title": "WebCraft Studios",
+        "tagline": "No-code platform for beautiful business websites",
+        "stage": "concept",
+        "problem": "Small business owners pay thousands for basic websites or struggle with complex website builders that require technical knowledge.",
+        "solution": "Drag-and-drop interface with AI-powered design suggestions that creates professional websites in minutes, not weeks."
+      }
     }
   ],
   "events": [

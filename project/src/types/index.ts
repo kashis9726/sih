@@ -10,6 +10,7 @@ export interface User {
   company?: string;
   position?: string;
   bio?: string;
+  startup?: string;
   points: number;
   badges: string[];
   isVerified?: boolean;
@@ -26,7 +27,16 @@ export interface Post {
   likes: string[];
   comments: Comment[];
   createdAt: Date;
-  type: 'post' | 'job' | 'achievement';
+  type: 'post' | 'job' | 'achievement' | 'startup';
+  startupData?: {
+    title: string;
+    tagline: string;
+    stage: 'concept' | 'prototype' | 'mvp';
+    problem: string;
+    solution: string;
+    progress?: string;
+    supportNeeded?: string;
+  };
 }
 
 export interface Comment {
