@@ -8,6 +8,6 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   // Base path configuration - use '/' for Netlify, Vercel
-  // For GitHub Pages, use '/AluVerse-project/'
-  base: '/AluVerse-project/',
+  // For GitHub Pages, use '/sih/' to match repository name
+  base: '/sih/',
 });

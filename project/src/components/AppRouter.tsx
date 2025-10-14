@@ -15,7 +15,7 @@ const AppRouter: React.FC = () => {
       }
 
       try {
-        const res = await fetch('/demo-dataset.json');
+        const res = await fetch(`${import.meta.env.BASE_URL}demo-dataset.json`);
         const data = await res.json();
         // Write each key to localStorage
         Object.entries(data).forEach(([key, value]) => {
