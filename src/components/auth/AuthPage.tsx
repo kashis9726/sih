@@ -9,7 +9,7 @@ const AuthPage: React.FC = () => {
     name: '',
     email: '',
     password: '',
-    role: 'student' as 'student' | 'alumni' | 'admin',
+    role: 'student' as 'student' | 'alumni' | 'admin' | 'industry_hr' | 'institute_hr' | 'super_admin',
     department: '',
     graduationYear: new Date().getFullYear(),
     company: '',
@@ -44,11 +44,13 @@ const AuthPage: React.FC = () => {
     }
   };
 
-  const quickLogin = async (role: 'student' | 'alumni' | 'admin') => {
-    const credentials = {
+  const quickLogin = async (role: 'student' | 'alumni' | 'admin' | 'industry_hr' | 'institute_hr') => {
+    const credentials: Record<string, { email: string; password: string }> = {
       student: { email: 'student@demo.com', password: 'demo' },
       alumni: { email: 'alumni@demo.com', password: 'demo' },
-      admin: { email: 'admin@demo.com', password: 'demo' }
+      admin: { email: 'admin@demo.com', password: 'demo' },
+      industry_hr: { email: 'industry@demo.com', password: 'demo' },
+      institute_hr: { email: 'institute@demo.com', password: 'demo' },
     };
 
     // Create demo users if they don't exist
@@ -63,8 +65,8 @@ const AuthPage: React.FC = () => {
         role,
         department: 'Computer Science',
         graduationYear: role === 'student' ? 2025 : 2020,
-        company: role === 'alumni' ? 'Tech Corp' : undefined,
-        position: role === 'alumni' ? 'Senior Developer' : undefined,
+        company: role === 'alumni' || role === 'industry_hr' ? 'Tech Corp' : undefined,
+        position: role === 'alumni' || role === 'industry_hr' ? 'Senior Developer' : undefined,
         skills: ['JavaScript', 'React', 'Node.js'],
         points: Math.floor(Math.random() * 1000),
         badges: ['🎓 Top Mentor'],
@@ -136,6 +138,8 @@ const AuthPage: React.FC = () => {
                   <option value="student">Student</option>
                   <option value="alumni">Alumni</option>
                   <option value="admin">Admin</option>
+                  <option value="industry_hr">Industry HR</option>
+                  <option value="institute_hr">Institute HR</option>
                 </select>
               </div>
 
@@ -230,7 +234,7 @@ const AuthPage: React.FC = () => {
 
         <div className="mt-8 pt-6 border-t border-gray-200">
           <p className="text-center text-sm text-gray-600 mb-4">Quick Demo Access:</p>
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-3 md:grid-cols-5 gap-2">
             <button
               onClick={() => quickLogin('student')}
               className="bg-green-100 text-green-700 py-2 px-3 rounded-lg text-xs font-medium hover:bg-green-200 transition-colors"
@@ -248,6 +252,18 @@ const AuthPage: React.FC = () => {
               className="bg-purple-100 text-purple-700 py-2 px-3 rounded-lg text-xs font-medium hover:bg-purple-200 transition-colors"
             >
               Admin Demo
+            </button>
+            <button
+              onClick={() => quickLogin('industry_hr')}
+              className="bg-amber-100 text-amber-700 py-2 px-3 rounded-lg text-xs font-medium hover:bg-amber-200 transition-colors"
+            >
+              Industry HR
+            </button>
+            <button
+              onClick={() => quickLogin('institute_hr')}
+              className="bg-teal-100 text-teal-700 py-2 px-3 rounded-lg text-xs font-medium hover:bg-teal-200 transition-colors"
+            >
+              Institute HR
             </button>
           </div>
         </div>

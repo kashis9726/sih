@@ -10,7 +10,6 @@ const SystemSettings: React.FC = () => {
     enableNotifications: true,
     enableChat: true,
     maintenanceMode: false,
-
     maxFileSize: '10',
     allowedFileTypes: 'jpg,png,pdf,doc,docx',
   });

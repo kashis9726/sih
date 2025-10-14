@@ -39,12 +39,16 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, setCurrentPage }) => {
         return [
           { id: 'dashboard', label: 'Student Dashboard', icon: Home },
           { id: 'alumni', label: 'Find Mentors', icon: Users },
+          { id: 'mentorship', label: 'Mentorship', icon: UserCheck },
           { id: 'opportunities', label: 'Internships', icon: Briefcase },
+          { id: 'applications', label: 'My Applications', icon: FileText },
+          { id: 'matches', label: 'Matches', icon: Users },
           { id: 'events', label: 'Events', icon: Calendar },
           { id: 'startups', label: 'Startup Ideas', icon: Lightbulb },
           { id: 'qa', label: 'Ask Questions', icon: MessageCircle },
-          { id: 'blogs', label: 'Learning Resources', icon: BookOpen },
           { id: 'reverse-pitching', label: 'Challenges Hub', icon: RefreshCw },
+          { id: 'ai-recommender', label: 'AI Recommender', icon: GraduationCap },
+          { id: 'skill-gap', label: 'Skill Gap & Certs', icon: Award },
         ];
 
       case 'alumni':
@@ -52,6 +56,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, setCurrentPage }) => {
           { id: 'dashboard', label: 'Alumni Dashboard', icon: Home },
           { id: 'feed', label: 'Alumni Network', icon: FeedIcon },
           { id: 'alumni', label: 'Alumni Directory', icon: Users },
+          { id: 'mentorship', label: 'Mentorship', icon: UserCheck },
           { id: 'blogs', label: 'Share Knowledge', icon: BookOpen },
           { id: 'startups', label: 'Startup Hub', icon: Lightbulb },
           { id: 'opportunities', label: 'Job Postings', icon: Briefcase },
@@ -69,6 +74,21 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, setCurrentPage }) => {
           { id: 'content', label: 'Content Moderation', icon: FileText },
           { id: 'alumni', label: 'Alumni Database', icon: Users },
           { id: 'settings', label: 'System Settings', icon: Settings },
+        ];
+
+      case 'industry_hr':
+        return [
+          { id: 'dashboard', label: 'HR Dashboard', icon: Home },
+          { id: 'hr-post', label: 'Post Internship/Project', icon: FileText },
+          { id: 'hr-applicants', label: 'Applicants', icon: Users },
+          { id: 'opportunities', label: 'Browse Opportunities', icon: Briefcase },
+        ];
+
+      case 'institute_hr':
+        return [
+          { id: 'dashboard', label: 'Institute Dashboard', icon: Home },
+          { id: 'approvals', label: 'Approvals', icon: Shield },
+          { id: 'analytics', label: 'Analytics', icon: BarChart3 },
         ];
 
       default:
