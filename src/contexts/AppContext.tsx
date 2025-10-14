@@ -9,6 +9,7 @@ interface AppContextType {
   questions: Question[];
   chatRooms: ChatRoom[];
   users: User[];
+  setUsers: (users: User[]) => void;
   addPost: (post: Omit<Post, 'id' | 'createdAt'>) => void;
   addStartup: (startup: Omit<Startup, 'id' | 'createdAt'>) => void;
   addReversePitch: (pitch: Omit<ReversePitch, 'id' | 'createdAt'>) => void;

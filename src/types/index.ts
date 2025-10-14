@@ -53,6 +53,8 @@ export interface Startup {
   likes: string[];
   comments: Comment[];
   createdAt: Date;
+  // optional UI-only fields tolerated in some components
+  projectImage?: string;
 }
 
 export interface ReversePitch {
