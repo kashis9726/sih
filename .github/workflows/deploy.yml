@@ -30,8 +30,13 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Install deps
-        run: npm ci
+      - name: Install deps (with retry)
+        run: |
+          set -e
+          npm ci || {
+            echo "npm ci failed; falling back to npm install";
+            npm install --no-audit --no-fund --loglevel=warn;
+          }
 
       - name: Build
         env:
@@ -42,6 +47,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
+          retention-days: 7
 
   deploy:
     needs: build
