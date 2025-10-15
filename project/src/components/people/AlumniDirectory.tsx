@@ -37,15 +37,15 @@ const AlumniDirectory: React.FC = () => {
     <div className="space-y-6">
       {/* Header */}
       <div className="bg-white/80 backdrop-blur rounded-2xl p-6 shadow-elev-1 border border-white/50">
-        <h1 className="text-2xl font-bold text-gray-900">Alumni Directory</h1>
-        <p className="text-gray-600">Find alumni by department, company, or skills and connect instantly.</p>
+        <h1 className="text-2xl font-bold text-gray-900">Mentor Directory</h1>
+        <p className="text-gray-600">Find industry mentors by department, company, or skills and connect instantly.</p>
         <div className="mt-3 bg-indigo-50 border border-indigo-200 text-indigo-900 rounded-lg p-3 text-sm">
-          The Alumni Directory helps you discover specific people or skills. For quick updates use Alumni Feed; for long-form learnings see Alumni Blogs.
+          The Mentor Directory helps you discover specific people or skills. For quick updates use Industry Network; for long-form learnings see Blogs.
         </div>
         <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-            <input value={q} onChange={(e)=>setQ(e.target.value)} placeholder="Search alumni, companies, skills..." className="w-full pl-10 pr-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"/>
+            <input value={q} onChange={(e)=>setQ(e.target.value)} placeholder="Search industry mentors, companies, skills..." className="w-full pl-10 pr-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent"/>
           </div>
           <select value={dept} onChange={(e)=>setDept(e.target.value)} className="px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent">
             {departments.map(d => <option key={d} value={d}>{d}</option>)}

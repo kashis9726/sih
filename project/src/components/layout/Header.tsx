@@ -28,6 +28,11 @@ const Header: React.FC<HeaderProps> = ({ onChatToggle }) => {
     }
   };
 
+  const getRoleDisplay = (role: string) => {
+    if (role === 'alumni') return 'industry';
+    return role;
+  };
+
   // Aggregate notifications: jobs/internships from posts (type 'job'), blog posts (type 'post'), startup posts (type 'startup'), upcoming events
   const jobNotifs = useMemo(() => posts.filter(p => p.type === 'job').slice(-5).reverse(), [posts]);
   const blogNotifs = useMemo(() => posts.filter(p => p.type === 'post').slice(-5).reverse(), [posts]);
@@ -179,7 +184,7 @@ const Header: React.FC<HeaderProps> = ({ onChatToggle }) => {
                 <div className="text-sm font-medium text-gray-900">{user?.role === 'admin' ? 'Admin' : user?.name}</div>
                 <div className="flex items-center space-x-2">
                   <span className={`px-2 py-0.5 text-xs font-medium rounded-full ${getRoleBadgeColor(user?.role || 'student')}`}>
-                    {user?.role}
+                    {getRoleDisplay(user?.role || 'student')}
                   </span>
                   <span className="text-xs text-gray-500">{user?.points} pts</span>
                 </div>

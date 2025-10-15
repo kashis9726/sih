@@ -38,24 +38,24 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, setCurrentPage }) => {
       case 'student':
         return [
           { id: 'dashboard', label: 'Student Dashboard', icon: Home },
-          { id: 'alumni', label: 'Find Mentors', icon: Users },
+          { id: 'alumni', label: 'Mentor Directory', icon: Users },
           { id: 'opportunities', label: 'Internships', icon: Briefcase },
           { id: 'events', label: 'Events', icon: Calendar },
           { id: 'startups', label: 'Startup Ideas', icon: Lightbulb },
           { id: 'qa', label: 'Ask Questions', icon: MessageCircle },
-          { id: 'blogs', label: 'Learning Resources', icon: BookOpen },
+          { id: 'blogs', label: 'Industry Blogs', icon: BookOpen },
           { id: 'reverse-pitching', label: 'Challenges Hub', icon: RefreshCw },
         ];
 
       case 'alumni':
         return [
-          { id: 'dashboard', label: 'Alumni Dashboard', icon: Home },
-          { id: 'feed', label: 'Alumni Network', icon: FeedIcon },
-          { id: 'alumni', label: 'Alumni Directory', icon: Users },
+          { id: 'dashboard', label: 'Industry Dashboard', icon: Home },
+          { id: 'feed', label: 'Industry Network', icon: FeedIcon },
+          { id: 'alumni', label: 'Mentor Directory', icon: Users },
           { id: 'blogs', label: 'Share Knowledge', icon: BookOpen },
           { id: 'startups', label: 'Startup Hub', icon: Lightbulb },
           { id: 'opportunities', label: 'Job Postings', icon: Briefcase },
-          { id: 'events', label: 'Alumni Events', icon: Calendar },
+          { id: 'events', label: 'Industry Events', icon: Calendar },
           { id: 'reverse-pitching', label: 'Mentor Students', icon: UserCheck },
           { id: 'qa', label: 'Q&A Board', icon: MessageCircle },
         ];
@@ -67,7 +67,8 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, setCurrentPage }) => {
           { id: 'analytics', label: 'Analytics', icon: TrendingUp },
           { id: 'events', label: 'Event Management', icon: Calendar },
           { id: 'content', label: 'Content Moderation', icon: FileText },
-          { id: 'alumni', label: 'Alumni Database', icon: Users },
+          { id: 'alumni', label: 'Mentor Directory', icon: Users },
+          { id: 'opportunities', label: 'Internship Management', icon: Briefcase },
           { id: 'settings', label: 'System Settings', icon: Settings },
         ];
 
