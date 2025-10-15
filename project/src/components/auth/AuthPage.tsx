@@ -134,8 +134,8 @@ const AuthPage: React.FC = () => {
                   required
                 >
                   <option value="student">Student</option>
-                  <option value="alumni">Alumni</option>
-                  <option value="admin">Admin</option>
+                  <option value="alumni">Industry</option>
+                  <option value="admin">Institute</option>
                 </select>
               </div>
 
@@ -241,13 +241,13 @@ const AuthPage: React.FC = () => {
               onClick={() => quickLogin('alumni')}
               className="bg-blue-100 text-blue-700 py-2 px-3 rounded-lg text-xs font-medium hover:bg-blue-200 transition-colors"
             >
-              Alumni Demo
+              Industry Demo
             </button>
             <button
               onClick={() => quickLogin('admin')}
               className="bg-purple-100 text-purple-700 py-2 px-3 rounded-lg text-xs font-medium hover:bg-purple-200 transition-colors"
             >
-              Admin Demo
+              Institute Demo
             </button>
           </div>
         </div>
