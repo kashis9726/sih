@@ -93,7 +93,7 @@ const AdminDashboard: React.FC = () => {
       icon: Users,
       color: 'bg-blue-500',
       change: '+12%',
-      description: `${studentsCount} students, ${alumniCount} alumni`
+      description: `${studentsCount} students, ${alumniCount} industry`
     },
     {
       title: 'Active Now',
@@ -140,7 +140,7 @@ const AdminDashboard: React.FC = () => {
   const alumniHosted = events.filter(e => e.organizer?.role === 'alumni').length;
   const instituteHosted = events.filter(e => e.organizer?.role === 'admin').length;
   const eventsHostedData = [
-    { name: 'Alumni Hosted', count: alumniHosted || 8, fill: '#6366F1' },
+    { name: 'Industry Hosted', count: alumniHosted || 8, fill: '#6366F1' },
     { name: 'Institute Hosted', count: instituteHosted || 5, fill: '#10B981' },
   ];
 
@@ -269,7 +269,7 @@ const AdminDashboard: React.FC = () => {
                   stroke="#10B981" 
                   strokeWidth={3} 
                   dot={{ fill: '#10B981', strokeWidth: 2, r: 4 }} 
-                  name="Alumni" 
+                  name="Industry" 
                 />
               </LineChart>
             </ResponsiveContainer>

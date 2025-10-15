@@ -54,7 +54,7 @@ const ReversePitching: React.FC = () => {
       <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
         <h1 className="text-2xl font-bold text-gray-900 mb-2">Reverse Pitching 💡</h1>
         <p className="text-gray-600">
-          Alumni post real-world problems/challenges and students propose innovative solutions, ideas, or prototypes. This is not a job board — rewards are for winning solutions.
+          Industry mentors post real-world problems/challenges and students propose innovative solutions, ideas, or prototypes. This is not a job board — rewards are for winning solutions.
         </p>
       </div>
 
@@ -63,9 +63,9 @@ const ReversePitching: React.FC = () => {
           <div className="flex-1 text-sm">
             <p className="font-semibold mb-1">How it works</p>
             <ul className="list-disc list-inside space-y-1">
-              <li>Alumni post a clearly defined problem and optionally a Solution Reward (mentorship, incubation, prize).</li>
+              <li>Industry mentors post a clearly defined problem and optionally a Solution Reward (mentorship, incubation, prize).</li>
               <li>Students submit ideas, plans, or prototype outlines to solve the problem.</li>
-              <li>Alumni review submissions, give feedback, and select a winning solution.</li>
+              <li>Mentors review submissions, give feedback, and select a winning solution.</li>
             </ul>
           </div>
           <button onClick={() => setShowInfo(false)} className="text-xs text-purple-700 hover:underline">Dismiss</button>
@@ -320,7 +320,7 @@ const ReversePitching: React.FC = () => {
           <p className="text-gray-600">
             {user?.role === 'alumni' || user?.role === 'admin'
               ? 'Be the first to post a challenge for students to solve!'
-              : 'Alumni will start posting challenges soon.'
+              : 'Industry mentors will start posting challenges soon.'
             }
           </p>
         </div>

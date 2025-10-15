@@ -126,7 +126,7 @@ const UserManagement: React.FC = () => {
           </div>
           <div className="bg-indigo-50 rounded-lg p-4 text-center">
             <div className="text-2xl font-bold text-indigo-600">{alumniCount}</div>
-            <div className="text-sm text-indigo-800">Alumni</div>
+            <div className="text-sm text-indigo-800">Industry</div>
           </div>
           <div className="bg-purple-50 rounded-lg p-4 text-center">
             <div className="text-2xl font-bold text-purple-600">{adminCount}</div>
@@ -138,7 +138,7 @@ const UserManagement: React.FC = () => {
           </div>
           <div className="bg-orange-50 rounded-lg p-4 text-center">
             <div className="text-2xl font-bold text-orange-600">{verifiedAlumni}</div>
-            <div className="text-sm text-orange-800">Verified Alumni</div>
+            <div className="text-sm text-orange-800">Verified Industry</div>
           </div>
         </div>
 
@@ -161,7 +161,7 @@ const UserManagement: React.FC = () => {
           >
             <option value="">All Roles</option>
             <option value="student">Students</option>
-            <option value="alumni">Alumni</option>
+            <option value="alumni">Industry</option>
             <option value="admin">Admins</option>
           </select>
           <select

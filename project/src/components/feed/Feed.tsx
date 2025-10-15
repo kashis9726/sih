@@ -130,10 +130,10 @@ const Feed: React.FC = () => {
   return (
     <div className="max-w-2xl mx-auto space-y-6">
       <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
-        <h1 className="text-2xl font-bold text-gray-900 mb-2">Alumni Feed</h1>
-        <p className="text-gray-600">Stay updated with the latest from your alumni network</p>
+        <h1 className="text-2xl font-bold text-gray-900 mb-2">Industry Network</h1>
+        <p className="text-gray-600">Stay updated with the latest from industry mentors and students</p>
         <div className="mt-3 bg-blue-50 border border-blue-200 text-blue-900 rounded-lg p-3 text-sm">
-          The Alumni Feed is a live stream of short updates like jobs, wins, and quick notes. For finding specific people, use the Alumni Directory. For long-form learnings, see Alumni Blogs.
+          The Industry Network is a live stream of short updates like jobs, wins, and quick notes. For finding specific people, use the Mentor Directory. For long-form learnings, see Industry Blogs.
         </div>
         <div className="mt-4 flex flex-col md:flex-row md:items-center gap-3">
           <div className="inline-flex bg-gray-100 rounded-lg p-1 w-full md:w-auto">

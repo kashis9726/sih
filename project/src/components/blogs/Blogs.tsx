@@ -44,8 +44,8 @@ const Blogs: React.FC = () => {
       <div className="bg-white/80 backdrop-blur rounded-2xl p-6 shadow-elev-1 border border-white/50">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-extrabold text-gray-900">Blogs by Alumni</h1>
-            <p className="text-gray-600">Read stories, roadmaps, and tips. Connect directly with authors.</p>
+            <h1 className="text-2xl font-extrabold text-gray-900">Industry Blogs</h1>
+            <p className="text-gray-600">Read stories, roadmaps, and tips from industry mentors. Connect directly with authors.</p>
           </div>
           {(user?.role === 'alumni') && (
             <button
@@ -68,7 +68,7 @@ const Blogs: React.FC = () => {
           </div>
         </div>
         <div className="mt-3 bg-rose-50 border border-rose-200 text-rose-900 rounded-lg p-3 text-sm">
-          Alumni Blogs are long-form learnings and stories. For quick updates, see Alumni Feed. To connect with an author or find their profile, use the Alumni Directory.
+          Industry Blogs are long-form learnings and stories. For quick updates, see Industry Network. To connect with an author or find their profile, use the Mentor Directory.
         </div>
         {showComposer && (user?.role === 'alumni') && (
           <div className="mt-4 p-4 border border-gray-200 rounded-xl bg-white/90">
@@ -158,7 +158,7 @@ const Blogs: React.FC = () => {
           <div key={b.id} className="rounded-2xl border border-white/50 bg-white/90 backdrop-blur shadow-elev-1 hover:shadow-elev-2 transition overflow-hidden">
             {(() => {
               const anyB: any = b as any;
-              const keyword = (anyB.title || anyB.category || (anyB.tags && anyB.tags[0]) || b.author?.company || 'Alumni Blog').toString();
+              const keyword = (anyB.title || anyB.category || (anyB.tags && anyB.tags[0]) || b.author?.company || 'Industry Blog').toString();
               const cover = (anyB.image || `https://placehold.co/1200x600?text=${encodeURIComponent(keyword)}`);
               return <img src={cover} alt="cover" className="w-full h-40 object-cover"/>;
             })()}
@@ -209,7 +209,7 @@ const Blogs: React.FC = () => {
                         try {
                           window.dispatchEvent(new CustomEvent('app:navigate' as any, { detail: { page: 'alumni', search: b.author.name } } as any));
                         } catch {
-                          alert(`Go to Alumni Directory and search for: ${b.author.name}`);
+                          alert(`Go to Mentor Directory and search for: ${b.author.name}`);
                         }
                       }}
                       className="px-4 py-2 rounded-lg border text-gray-700 hover:bg-gray-50"
