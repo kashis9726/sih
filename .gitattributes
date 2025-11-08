@@ -1,0 +1,99 @@
+# Set default behavior to automatically normalize line endings
+* text=auto
+
+# Explicitly declare text files you want to always be normalized and converted
+# to native line endings on checkout
+*.ts text eol=lf
+*.tsx text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.html text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Declare files that will always have CRLF line endings on checkout
+*.sln text eol=crlf
+
+# Declare files that will always have LF line endings on checkout
+*.sh text eol=lf
+
+# Denote all files that are truly binary and should not be modified
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.mov binary
+*.mp4 binary
+*.mp3 binary
+*.flv binary
+*.fla binary
+*.swf binary
+*.gz binary
+*.zip binary
+*.7z binary
+*.ttf binary
+*.eot binary
+*.woff binary
+*.woff2 binary
+*.pyc binary
+*.pdf binary
+
+# Documents
+*.doc binary
+*.docx binary
+*.xls binary
+*.xlsx binary
+*.ppt binary
+*.pptx binary
+
+# Archives
+*.7z binary
+*.rar binary
+*.tar binary
+*.tgz binary
+*.bz2 binary
+
+# Windows
+*.exe binary
+*.dll binary
+*.bat binary
+*.cmd binary
+
+# Java
+*.jar binary
+*.class binary
+
+# .NET
+*.dll binary
+*.exe binary
+
+# Node modules
+node_modules/** binary
+
+# Package manager lock files
+package-lock.json text eol=lf
+yarn.lock text eol=lf
+pnpm-lock.yaml text eol=lf
+
+# GitHub specific
+.github/** text eol=lf
+
+# Configuration files
+.eslintrc* text eol=lf
+.prettierrc* text eol=lf
+.editorconfig text eol=lf
+
+# CI/CD
+.github/workflows/** text eol=lf
+
+# Documentation
+README* text eol=lf
+CHANGELOG* text eol=lf
+CONTRIBUTING* text eol=lf
+LICENSE* text eol=lf
